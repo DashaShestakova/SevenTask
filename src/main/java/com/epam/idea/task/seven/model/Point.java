@@ -40,8 +40,8 @@ public class Point {
             return true;
         if (obj==null||obj.getClass()!=this.getClass())
             return false;
-        Point dot=(Point)obj;
-        return this.getPointX()==dot.getPointX() && this.getPointY()==dot.getPointY();
+        Point point=(Point) obj;
+        return this.getPointX()==point.getPointX() && this.getPointY()==point.getPointY();
     }
 
     @Override

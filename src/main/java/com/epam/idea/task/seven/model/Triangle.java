@@ -1,16 +1,29 @@
 package com.epam.idea.task.seven.model;
 
+import com.epam.idea.task.seven.logic.TriangleCalculator;
+import com.epam.idea.task.seven.model.Point;
+
 import java.util.Objects;
 
 public class Triangle {
+    private int id;
     private Point firstPoint;
     private Point secondPoint;
     private Point thirdPoint;
 
-    public Triangle(Point firstPoint, Point secondPoint, Point thirdPoint) {
+    public Triangle(int id, Point firstPoint, Point secondPoint, Point thirdPoint) {
+        this.id = id;
         this.firstPoint = firstPoint;
         this.secondPoint = secondPoint;
         this.thirdPoint = thirdPoint;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Point getFirstPoint() {
@@ -38,13 +51,16 @@ public class Triangle {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Triangle triangle = (Triangle) o;
-        return Objects.equals(firstPoint, triangle.firstPoint) &&
-                Objects.equals(secondPoint, triangle.secondPoint) &&
-                Objects.equals(thirdPoint, triangle.thirdPoint);
+    public boolean equals(Object obj) {
+        if (obj==this)
+            return true;
+        if (obj==null||obj.getClass()!=this.getClass())
+            return false;
+        Triangle triangle=(Triangle)obj;
+        return (triangle.getFirstPoint().equals(this.getFirstPoint())
+                && triangle.getSecondPoint().equals(this.getSecondPoint())
+                && triangle.getThirdPoint().equals(this.getThirdPoint()));
+
     }
 
     @Override
